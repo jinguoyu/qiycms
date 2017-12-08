@@ -23,7 +23,12 @@ class Index extends Controller
 						'上传附件限制' => ini_get('upload_max_filesize'),
 					    ];
   
+			$newsnum =Db::name('news')->count();
+			$catnum =DB::name('column')->count();
+			 
 
+			$this->assign('catnum',$catnum);
+			$this->assign('newsnum',$newsnum);
 			$this->assign('server',$info);
 		 	$this->assign('user',$data);
     		return $this->fetch();
